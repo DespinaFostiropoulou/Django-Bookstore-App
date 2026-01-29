@@ -1,0 +1,33 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+<table class="table-responsive">
+    <tbody>
+        <tr>
+            {% for book in books %}
+                {% if forloop.counter|divisibleby:4%}
+                <td>
+                    <div class="post">
+                        <h3><a href ="{% url 'post_detail' pk=book.pk %}">{{ book.titlos }}</a></h3>
+                        {% if book.image %} <img src="{{ book.image.url }}" class="img-responsive"/>
+                            <p class="price">Τιμή: {{ book.timi }}</p>
+                        {% endif %}
+                    </div>
+                </td>
+        </tr>
+        <tr>
+           {% else %}
+               <td>
+                   <div class="post">
+                        <h3><a href ="{% url 'post_detail' pk=book.pk %}">{{ book.titlos }}</a></h3>
+                        {% if book.image %} <img src="{{ book.image.url }}" class="img-responsive"/>
+                            <p class="price">Τιμή: {{ book.timi }}</p>
+                        {% endif %}
+                   </div>
+               </td>
+                {% endif %}
+           {% endfor %}
+        </tr>
+    </tbody>
+</table>
+
+{% endblock content %}

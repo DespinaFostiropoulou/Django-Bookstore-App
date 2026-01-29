@@ -1,0 +1,19 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+    <div class="container" xmlns="http://www.w3.org/1999/html">
+        <div class="post">
+            <div class="post">
+                <h3> {{ book.titlos }} {{ book.syggrafeas }} | <small>{{ book.ekdotikos_oikos }}</small></h3></h3>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-4""> <p>
+                    {% if book.image %} <img src="{{ book.image.url }}" class="img-responsive image"/>
+                    {% endif %}</p></div>
+                <div class="col-md-8"> <h4>{{ book.perilipsi| linebreaksbr }}</h4><BR><BR><BR>
+                     <h5> ΚΑΤΗΓΟΡΙΑ: {{ book.tipos }}<BR><br>
+                     ΤΙΜΗ:{{book.timi }}</h5></div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
